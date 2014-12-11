@@ -122,17 +122,14 @@ mapping_table = {
     # Users
     'list_users': {
         'path': '/users.json',
-        'valid_params': ('role','page'),
         'method': 'GET',
     },
     'list_users_in_group': {
         'path': '/groups/{{group_id}}/users.json',
-        'valid_params': ('role','page'),
         'method': 'GET',
     },
     'list_users_in_organization': {
         'path': '/organization/{{organization_id}}/users.json',
-        'valid_params': ('role','page'),
         'method': 'GET',
     },
     'show_user': {
@@ -660,7 +657,7 @@ mapping_table = {
 }
 
 # Patch mapping table with correct HTTP Status expected
-for method, api_map in mapping_table.iteritems():
+for method, api_map in mapping_table.items():
     status = 200
     if method.startswith('create_'):
         status = 201
